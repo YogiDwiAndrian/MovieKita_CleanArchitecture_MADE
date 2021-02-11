@@ -12,7 +12,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
         android:background="@color/placeholder"
-        android:contentDescription="@string/cd_gambar_poster"
+        android:contentDescription="@string/cd_poster"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/itemContainer"
         app:layout_constraintStart_toStartOf="@+id/itemContainer" />
@@ -52,7 +52,7 @@
                 app:riv_corner_radius="10dp" />
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/ratebarVer"
+                android:id="@+id/rateBarVer"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="2dp"
@@ -63,15 +63,15 @@
                 app:riv_corner_radius="10dp" />
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/tvRatenumVer"
+                android:id="@+id/tvRateNumVer"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="2dp"
                 android:scaleType="centerCrop"
                 android:src="@color/placeholder"
-                app:layout_constraintBottom_toBottomOf="@+id/ratebarVer"
-                app:layout_constraintStart_toEndOf="@+id/ratebarVer"
-                app:layout_constraintTop_toTopOf="@+id/ratebarVer"
+                app:layout_constraintBottom_toBottomOf="@+id/rateBarVer"
+                app:layout_constraintStart_toEndOf="@+id/rateBarVer"
+                app:layout_constraintTop_toTopOf="@+id/rateBarVer"
                 app:riv_corner_radius="10dp" />
 
             <com.makeramen.roundedimageview.RoundedImageView
@@ -81,8 +81,8 @@
                 android:layout_marginTop="2dp"
                 android:scaleType="centerCrop"
                 android:src="@color/placeholder"
-                app:layout_constraintStart_toStartOf="@+id/ratebarVer"
-                app:layout_constraintTop_toBottomOf="@+id/tvRatenumVer"
+                app:layout_constraintStart_toStartOf="@+id/rateBarVer"
+                app:layout_constraintTop_toBottomOf="@+id/tvRateNumVer"
                 app:riv_corner_radius="10dp" />
 
             <com.makeramen.roundedimageview.RoundedImageView

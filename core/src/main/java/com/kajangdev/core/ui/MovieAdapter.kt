@@ -15,7 +15,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var onItemClick: ((Movie) -> Unit)? = null
 
-    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Movie>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<Movie>() {
 
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem.id == newItem.id
@@ -26,7 +26,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         }
 
     }
-    private val differ = AsyncListDiffer(this, DIFF_CALLBACK)
+    private val differ = AsyncListDiffer(this, diffCallback)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -53,8 +53,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         fun bind(movie: Movie) {
             with(binding) {
                 tvTitleVer.text = movie.title
-                ratebarVer.rating = movie.rating ?: 0.0f / 2
-                tvRatenumVer.text = movie.rating.toString()
+                rateBarVer.rating = movie.rating ?: 0.0f / 2
+                tvRateNumVer.text = movie.rating.toString()
                 tvRelease.text = movie.released
                 tvGenre.text = movie.genre
 

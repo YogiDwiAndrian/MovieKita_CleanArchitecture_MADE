@@ -17,10 +17,10 @@
     <string name="ended">Ended</string>
     <string name="search">Search</string>
     <string name="hastag">#hastag</string>
-    <string name="search_movie">Search movie...</string>
-    <string name="search_tv">Search tv...</string>
+    <string name="search_movie">Search movie…</string>
+    <string name="search_tv">Search tv…</string>
 
-    <string name="category_tvshow">TV SHOW</string>
+    <string name="category_tv">TV SHOW</string>
     <string name="category_movie">MOVIE</string>
     <string name="category_bookmark">BOOKMARK</string>
     <string name="category_home">HOME</string>

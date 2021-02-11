@@ -14,13 +14,13 @@
         android:id="@+id/navigation_movie"
         android:name="com.kajangdev.moviekita.presentation.movie.MovieFragment"
         android:label="@string/title_movies"
-        tools:layout="@layout/fragment_tvshow" />
+        tools:layout="@layout/fragment_tv" />
 
     <fragment
-        android:id="@+id/navigation_tvshow"
-        android:name="com.kajangdev.moviekita.presentation.tvshow.TvShowFragment"
+        android:id="@+id/navigation_tv"
+        android:name="com.kajangdev.moviekita.presentation.tv.TvShowFragment"
         android:label="@string/title_tv"
-        tools:layout="@layout/fragment_tvshow" />
+        tools:layout="@layout/fragment_tv" />
     <fragment
         android:id="@+id/navigation_bookmark"
         android:name="com.kajangdev.moviekita.bookmark.BookmarkFragment"

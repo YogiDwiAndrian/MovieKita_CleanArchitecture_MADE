@@ -1,4 +1,4 @@
-package com.kajangdev.moviekita.presentation.tvshow
+package com.kajangdev.moviekita.presentation.tv
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.kajangdev.core.ui.MovieAdapter
 import com.kajangdev.core.utils.gone
 import com.kajangdev.core.utils.visible
 import com.kajangdev.moviekita.R
-import com.kajangdev.moviekita.databinding.FragmentTvshowBinding
+import com.kajangdev.moviekita.databinding.FragmentTvBinding
 import com.kajangdev.moviekita.presentation.detail.DetailActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -27,7 +27,7 @@ class TvShowFragment : Fragment() {
     private val tvShowViewModel: TvShowViewModel by viewModel()
     private lateinit var movieAdapter: MovieAdapter
 
-    private var _binding: FragmentTvshowBinding? = null
+    private var _binding: FragmentTvBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -35,7 +35,7 @@ class TvShowFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTvshowBinding.inflate(inflater, container, false)
+        _binding = FragmentTvBinding.inflate(inflater, container, false)
         return binding.root
     }
 

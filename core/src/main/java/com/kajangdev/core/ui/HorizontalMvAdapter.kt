@@ -15,7 +15,7 @@ class HorizontalMvAdapter : RecyclerView.Adapter<HorizontalMvAdapter.HorizontalV
 
     var onItemClick: ((Movie) -> Unit)? = null
 
-    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Movie>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<Movie>() {
 
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem.id == newItem.id
@@ -26,7 +26,7 @@ class HorizontalMvAdapter : RecyclerView.Adapter<HorizontalMvAdapter.HorizontalV
         }
 
     }
-    private val differ = AsyncListDiffer(this, DIFF_CALLBACK)
+    private val differ = AsyncListDiffer(this, diffCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalViewHolder {
         val view =
@@ -52,8 +52,8 @@ class HorizontalMvAdapter : RecyclerView.Adapter<HorizontalMvAdapter.HorizontalV
         fun bind(movie: Movie) {
             with(binding) {
                 tvTitle.text = movie.title
-                ratebarHor.rating = movie.rating ?: 0.0f / 2
-                tvRatenumHor.text = movie.rating.toString()
+                rateBarHor.rating = movie.rating ?: 0.0f / 2
+                tvRateNumHor.text = movie.rating.toString()
 
                 Glide.with(itemView.context)
                         .load(movie.poster)

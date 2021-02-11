@@ -8,7 +8,7 @@
     tools:context=".presentation.splashscreen.SplashActivity">
 
     <ImageView
-        android:id="@+id/img_human"
+        android:id="@+id/imgHuman"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginTop="20dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_kutipan"
+        android:id="@+id/tvQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -31,10 +31,10 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_human" />
+        app:layout_constraintTop_toBottomOf="@+id/imgHuman" />
 
     <TextView
-        android:id="@+id/tv_ayat"
+        android:id="@+id/tvSourceQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -44,7 +44,7 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_kutipan" />
+        app:layout_constraintTop_toBottomOf="@+id/tvQuote" />
 
     <com.github.ybq.android.spinkit.SpinKitView
         style="@style/SpinKitView.CubeGrid"
@@ -54,7 +54,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ayat" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSourceQuote" />
 
     <TextView
         android:id="@+id/textView4"

@@ -28,9 +28,9 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
-    private lateinit var horizontalMvAdapter: HorizontalMvAdapter
-    private lateinit var horizontalTvAdapter: HorizontalTvAdapter
-    private lateinit var sliderAdapter: SliderAdapter
+    private var horizontalMvAdapter: HorizontalMvAdapter? = HorizontalMvAdapter()
+    private var horizontalTvAdapter: HorizontalTvAdapter? = HorizontalTvAdapter()
+    private var sliderAdapter: SliderAdapter? = SliderAdapter()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -48,17 +48,14 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            horizontalMvAdapter = HorizontalMvAdapter()
-            horizontalTvAdapter = HorizontalTvAdapter()
-            sliderAdapter = SliderAdapter()
 
-            horizontalMvAdapter.onItemClick = { selectedData ->
+            horizontalMvAdapter!!.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_MOVIE, selectedData)
                 startActivity(intent)
             }
 
-            horizontalTvAdapter.onItemClick = { selectedData ->
+            horizontalTvAdapter!!.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_MOVIE, selectedData)
                 startActivity(intent)
@@ -97,7 +94,7 @@ class HomeFragment : Fragment() {
             is Resource.Loading -> binding.progressShimmerMv.visible()
             is Resource.Success -> {
                 binding.progressShimmerMv.invisible()
-                horizontalMvAdapter.submitList(resource.data)
+                horizontalMvAdapter!!.submitList(resource.data)
             }
             is Resource.Error -> {
                 binding.progressShimmerMv.invisible()
@@ -111,7 +108,7 @@ class HomeFragment : Fragment() {
             is Resource.Loading -> binding.progressShimmerTv.visible()
             is Resource.Success -> {
                 binding.progressShimmerTv.gone()
-                horizontalTvAdapter.submitList(resource.data)
+                horizontalTvAdapter!!.submitList(resource.data)
             }
             is Resource.Error -> {
                 binding.progressShimmerTv.gone()
@@ -125,10 +122,11 @@ class HomeFragment : Fragment() {
             is Resource.Loading -> binding.progressShimmerSlider.visible()
             is Resource.Success -> {
                 binding.progressShimmerSlider.gone()
-                sliderAdapter.setSlides(resource.data)
-                binding.imageSlider.setSliderAdapter(sliderAdapter)
-                with(binding.imageSlider){
 
+                sliderAdapter!!.setSlides(resource.data)
+                binding.imageSlider.setSliderAdapter(sliderAdapter!!)
+
+                with(binding.imageSlider){
                     setIndicatorAnimation(IndicatorAnimationType.DROP)
                     setSliderTransformAnimation(SliderAnimations.CUBEOUTROTATIONTRANSFORMATION)
                     autoCycleDirection = SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH
@@ -147,7 +145,11 @@ class HomeFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        binding.imageSlider.stopAutoCycle()
         super.onDestroyView()
+        sliderAdapter = null
+        horizontalMvAdapter = null
+        horizontalTvAdapter = null
         _binding = null
     }
 }

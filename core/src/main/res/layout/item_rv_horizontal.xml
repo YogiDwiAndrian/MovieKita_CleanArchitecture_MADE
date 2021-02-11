@@ -19,7 +19,7 @@
             android:id="@+id/ivPosterHor"
             android:layout_width="120dp"
             android:layout_height="180dp"
-            android:contentDescription="@string/cd_gambar_poster"
+            android:contentDescription="@string/cd_poster"
             android:src="@drawable/poster_alita"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ivPosterHor" />
 
         <RatingBar
-            android:id="@+id/ratebarHor"
+            android:id="@+id/rateBarHor"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,16 +53,16 @@
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <TextView
-            android:id="@+id/tvRatenumHor"
+            android:id="@+id/tvRateNumHor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:fontFamily="@font/fira_sans"
             android:text="@string/ratenum"
             android:textColor="#F5B402"
-            app:layout_constraintBottom_toBottomOf="@+id/ratebarHor"
-            app:layout_constraintStart_toEndOf="@+id/ratebarHor"
-            app:layout_constraintTop_toTopOf="@+id/ratebarHor" />
+            app:layout_constraintBottom_toBottomOf="@+id/rateBarHor"
+            app:layout_constraintStart_toEndOf="@+id/rateBarHor"
+            app:layout_constraintTop_toTopOf="@+id/rateBarHor" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

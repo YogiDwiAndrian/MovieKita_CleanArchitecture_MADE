@@ -9,6 +9,9 @@ import com.kajangdev.core.data.source.remote.network.ApiService
 import com.kajangdev.core.domain.repository.IRepository
 import com.kajangdev.core.utils.AppExecutors
 import com.kajangdev.core.utils.Constant.BASE_URL
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -20,19 +23,31 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<MovieKitaDatabase>().movieKitaDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("kajang".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
                 androidContext(),
                 MovieKitaDatabase::class.java, "MovieKita.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
 val networkModule = module {
     single {
+        val hostName = "api.themoviedb.org"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostName, "sha256/+vqZVAzTqUP8BGkfl88yU7SQ3C8J2uNEa55B7RZjEg0=")
+            .add(hostName, "sha256/JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA=")
+            .add(hostName, "sha256/++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=")
+            .add(hostName, "sha256/KwccWaCgrnaw6tsrrSO61FgLacNgG2MMLq8GE6+oP5I=")
+            .build()
         OkHttpClient.Builder()
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .connectTimeout(120, TimeUnit.SECONDS)
                 .readTimeout(120, TimeUnit.SECONDS)
+                .certificatePinner(certificatePinner)
                 .build()
     }
     single {

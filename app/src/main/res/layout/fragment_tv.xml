@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".presentation.tvshow.TvShowFragment">
+    tools:context=".presentation.tv.TvShowFragment">
 
     <TextView
         android:id="@+id/tvCatTv"
@@ -14,7 +14,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/fira_sans"
-        android:text="@string/category_tvshow"
+        android:text="@string/category_tv"
         android:textColor="@color/white"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"

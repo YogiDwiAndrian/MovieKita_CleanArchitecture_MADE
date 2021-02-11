@@ -1,4 +1,4 @@
-package com.kajangdev.moviekita.presentation.tvshow
+package com.kajangdev.moviekita.presentation.tv
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

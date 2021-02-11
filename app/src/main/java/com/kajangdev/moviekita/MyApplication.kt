@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.kajangdev.moviekita
 
 import android.app.Application

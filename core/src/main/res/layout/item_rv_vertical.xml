@@ -12,7 +12,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
         android:background="@color/gray"
-        android:contentDescription="@string/cd_gambar_poster"
+        android:contentDescription="@string/cd_poster"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/itemContainer"
         app:layout_constraintStart_toStartOf="@+id/itemContainer" />
@@ -57,7 +57,7 @@
                 tools:ignore="RtlSymmetry" />
 
             <RatingBar
-                android:id="@+id/ratebarVer"
+                android:id="@+id/rateBarVer"
                 style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,16 +71,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleVer" />
 
             <TextView
-                android:id="@+id/tvRatenumVer"
+                android:id="@+id/tvRateNumVer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:fontFamily="@font/fira_sans"
                 android:text="@string/ratenum"
                 android:textColor="#F5B402"
-                app:layout_constraintBottom_toBottomOf="@+id/ratebarVer"
-                app:layout_constraintStart_toEndOf="@+id/ratebarVer"
-                app:layout_constraintTop_toTopOf="@+id/ratebarVer" />
+                app:layout_constraintBottom_toBottomOf="@+id/rateBarVer"
+                app:layout_constraintStart_toEndOf="@+id/rateBarVer"
+                app:layout_constraintTop_toTopOf="@+id/rateBarVer" />
 
             <TextView
                 android:id="@+id/tvRelease"
@@ -89,8 +89,8 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/release_date"
                 android:textColor="@color/colorFont"
-                app:layout_constraintStart_toStartOf="@+id/ratebarVer"
-                app:layout_constraintTop_toBottomOf="@+id/tvRatenumVer" />
+                app:layout_constraintStart_toStartOf="@+id/rateBarVer"
+                app:layout_constraintTop_toBottomOf="@+id/tvRateNumVer" />
 
             <TextView
                 android:id="@+id/tvGenre"
